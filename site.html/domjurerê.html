@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto Dom Jurerê</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+  }
+
+  .container {
+    position: relative;
+    text-align: center;
+    color: black;
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  .background-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .background-image.active {
+    opacity: 1;
+  }
+
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+  }
+
+  .content h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+  }
+
+  .button-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    z-index: 1000; /* Garante que o botão esteja acima de outros elementos */
+  }
+
+  .button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    color: #333; /* Cor da fonte */
+    background-color: #ffffff; /* Cor de fundo do botão */
+    border-radius: 8px; /* Tornando o botão mais arredondado */
+    border: 2px solid #333; /* Adicionando uma borda */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background-color: #f0f0f0; /* Cor do botão ao passar o mouse */
+    color: #000;
+    border-color: #000;
+  }
+
+  .button:focus {
+    outline: none;
+  }
+
+  .button span {
+    position: relative;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://placonempreendimentos.com.br/site/wp-content/uploads/2023/07/placon-dom-residence-02-650x650.jpg" alt="Projeto Dom Jurerê" class="background-image active">
+    <img src="https://placonempreendimentos.com.br/site/wp-content/uploads/2023/07/placon-dom-residence-01-650x650.jpg" alt="Projeto Dom Jurerê" class="background-image">
+    <img src="https://placonempreendimentos.com.br/site/wp-content/uploads/2023/07/placon-dom-residence-03-650x650.png" alt="Projeto Dom Jurerê" class="background-image">
+    <div class="content">
+      <h1>Projeto Dom Jurerê: Redefinindo o Conceito de Arquitetura Residencial</h1>
+      <p>O projeto Dom Jurerê surge como uma inovação notável no panorama da arquitetura residencial contemporânea. Situado em uma localização privilegiada, o Dom Jurerê é mais do que um simples edifício; é um marco de sofisticação e funcionalidade.</p>
+      <p>Combinando design arrojado com tecnologia de ponta, cada aspecto do Dom Jurerê é meticulosamente planejado para proporcionar um ambiente de vida único. Desde as fachadas elegantes até os espaços internos bem distribuídos, o projeto visa não apenas criar residências, mas sim um estilo de vida integrado.</p>
+      <p>Além disso, o Dom Jurerê incorpora práticas sustentáveis e materiais de alta qualidade, garantindo não apenas conforto, mas também responsabilidade ambiental. Com áreas de lazer cuidadosamente projetadas e vistas panorâmicas impressionantes, o Dom Jurerê redefine o conceito de moradia urbana, oferecendo uma experiência exclusiva para seus moradores.</p>
+      <p>Seja para quem busca um novo lar ou um investimento de valorização segura, o Dom Jurerê se destaca como um símbolo de excelência e inovação no cenário imobiliário moderno.</p>
+    </div>
+    <!-- Container do botão -->
+    <div class="button-container">
+      <!-- Botão -->
+      <a href="https://domjurere.my.canva.site" class="button" target="_blank">
+        <span>relatório mensal
+        </span>
+      </a>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      let currentImageIndex = 0;
+      const images = $('.background-image');
+      const totalImages = images.length;
+
+      setInterval(() => {
+        images.eq(currentImageIndex).removeClass('active');
+        currentImageIndex = (currentImageIndex + 1) % totalImages;
+        images.eq(currentImageIndex).addClass('active');
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
+
